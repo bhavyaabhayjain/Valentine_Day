@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Valentine? 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(12px);
+      border-radius: 28px;
+      padding: 38px 30px;
+      max-width: 480px;
+      width: 95%;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      animation: fadeIn 1.2s ease;
+      position: relative;
+    }
+    h1 { font-family: 'Pacifico', cursive; font-size: 2.2rem; margin-bottom: 10px; }
+    p { font-size: 1.05rem; line-height: 1.6; margin-bottom: 18px; }
+    .hidden { display: none; }
+    .buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+    button {
+      border: none; border-radius: 999px; padding: 13px 22px; font-size: 0.95rem;
+      cursor: pointer; transition: all 0.25s ease;
+    }
+    button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .yes { background: #ff2f68; color: #fff; }
+    .secondary { background: #fff; color: #ff2f68; }
+    .photos { display: flex; gap: 10px; justify-content: center; margin-bottom: 14px; }
+    .photos img { width: 72px; height: 72px; object-fit: cover; border-radius: 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.25); }
+    .quiz-img { width: 100%; max-height: 220px; object-fit: cover; border-radius: 16px; margin: 14px 0; box-shadow: 0 6px 18px rgba(0,0,0,0.3); }
+    .score { font-size: 0.9rem; opacity: 0.9; margin-top: 6px; }
+    .hearts span { position: absolute; bottom: -40px; font-size: 26px; animation: floatUp 6s linear infinite; opacity: 0.85; }
+    @keyframes floatUp { from { transform: translateY(0) scale(1); } to { transform: translateY(-110vh) scale(1.7); opacity: 0; } }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+  </style>
+</head>
+<body>
+
+<!-- PAGE 1 : PROPOSAL -->
+<div class="card" id="page1">
+  <h1>Buido Maro Cutie 💕</h1>
+  <div class="photos">
+    <img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_9992.jpg">
+    <img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_8346.jpg">
+    <img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_9097.jpg">
+  </div>
+  <p id="typed"></p>
+  <h1>Will you be my Valentine my bacho? 💘</h1>
+  <div class="buttons">
+    <button class="yes" onclick="goToPage('pageYes')">Yes 💖</button>
+    <button class="secondary" onclick="goToPage('pageNo')">No 🙈</button>
+  </div>
+</div>
+
+<!-- PAGE 2 : NO NOT ALLOWED -->
+<div class="card hidden" id="pageNo">
+  <h1>Oops 😤</h1>
+  <p>No is not allowed. This is compulsory YES only 💖</p>
+  <button class="yes" onclick="goToPage('page1')">Go Back & Say Yes 😌</button>
+</div>
+
+<!-- PAGE 3 : YES PAGE -->
+<div class="card hidden" id="pageYes">
+  <h1>YOU SAID YES!!! 🥰💍</h1>
+  <p>This made me the happiest person alive ❤️</p>
+  <button class="secondary" onclick="goToPage('quiz1')">Start Quiz 💌</button>
+</div>
+
+<!-- QUIZ TEMPLATE (10 QUESTIONS) -->
+<div class="card hidden" id="quiz1">
+  <h1>Question 1 💖</h1>
+  <p>Who loves whom more?</p>
+  <div class="buttons">
+    <button class="yes" onclick="answer(1)">You love me more</button>
+    <button class="yes" onclick="answer(1)">I love you more</button>
+    <button class="yes" onclick="answer(1)">Both equally</button>
+    <button class="yes" onclick="answer(1)">I love youuuuuu ❤️</button>
+  </div>
+</div>
+
+<div class="card hidden" id="quiz2">
+  <h1>Question 2 💕</h1>
+  <p>Which memory is this?</p>
+  <img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_6689.jpg" class="quiz-img">
+  <div class="buttons">
+    <button class="yes" onclick="answer(2)">Our first trip</button>
+    <button class="yes" onclick="answer(2)">Kearny</button>
+    <button class="yes" onclick="answer(2)">California</button>
+    <button class="yes" onclick="answer(2)">I love youuuuuu ❤️</button>
+  </div>
+</div>
+
+<!-- QUESTIONS 3–10 (TEXT ONLY PLACEHOLDERS) -->
+<div class="card hidden" id="quiz3"><h1>Question 3 💖</h1><p>Which memory is this?</p> <img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_9992.jpg" class="quiz-img">
+<div class="buttons"><button class="yes" onclick="answer(3)">Kearny</button><button class="yes" onclick="answer(3)">Central Park</button><button class="yes" onclick="answer(3)">Ashford Cafe</button><button class="yes" onclick="answer(3)">I love youuuuuu ❤️</button></div></div>
+<div class="card hidden" id="quiz4"><h1>Question 4 💖</h1><p>What are we?</p><img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_8656.jpg" class="quiz-img">
+  <div class="buttons"><button class="yes" onclick="answer(4)">Brooklyn Bridge</button><button class="yes" onclick="answer(4)">Allenberry</button><button class="yes" onclick="answer(4)">San Franciso</button><button class="yes" onclick="answer(4)">I love youuuuuu ❤️</button></div></div>
+<div class="card hidden" id="quiz5"><h1>Question 5 💖</h1><p>Konsi Jaga hai Yeah</p><img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_9762.jpg" class="quiz-img">
+<div class="buttons"><button class="yes" onclick="answer(5)">Ghar ka aage wali gaali</button><button class="yes" onclick="answer(5)">Newport</button><button class="yes" onclick="answer(5)">NYc</button><button class="yes" onclick="answer(5)">I love youuuuuu ❤️</button></div></div>
+<div class="card hidden" id="quiz6"><h1>Question 6 💖</h1><p>Who is more cutie in childhood?</p>
+<div class="buttons"><button class="yes" onclick="answer(6)">Jheelu</button><button class="yes" onclick="answer(6)">Jheelu</button><button class="yes" onclick="answer(6)">Jheelu</button><button class="yes" onclick="answer(6)">I love youuuuuu ❤️</button></div></div>
+<div class="card hidden" id="quiz7"><h1>Question 7 💖</h1><p>When did I Proposed You first Time?</p><img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_6138.jpg" class="quiz-img">
+<div class="buttons"><button class="yes" onclick="answer(7)">April 19</button><button class="yes" onclick="answer(7)">March 26</button><button class="yes" onclick="answer(7)">April 17</button><button class="yes" onclick="answer(7)">I love youuuuuu ❤️</button></div></div>
+<div class="card hidden" id="quiz8"><h1>Question 8 💖</h1><p>What is did we do at this place in this night?</p><img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_6216.jpg" class="quiz-img">
+  <div class="buttons"><button class="yes" onclick="answer(8)">Vape</button><button class="yes" onclick="answer(8)">Half Sex</button><button class="yes" onclick="answer(8)">Susu in Hudson</button><button class="yes" onclick="answer(8)">I love youuuuuu ❤️</button></div></div>
+<div class="card hidden" id="quiz9"><h1>Question 9 💖</h1><p>This is a love location guess which OneD</p><img src="C:\Users\bhavy\OneDrive\Pictures\Buido\JPEG\IMG_8923.jpg" class="quiz-img">
+  <div class="buttons"><button class="yes" onclick="answer(9)">Belvedere Castle</button><button class="yes" onclick="answer(9)">Central Park</button><button class="yes" onclick="answer(9)">Golden Bridge</button><button class="yes" onclick="answer(9)">I love youuuuuu ❤️</button></div></div>
+<div class="card hidden" id="quiz10"><h1>Question 10 💖</h1><p>Last question… Who has better farting skills?</p><div class="buttons"><button class="yes" onclick="answer(10)">Jheelu ❤️</button><button class="yes" onclick="answer(10)">Jheelu ❤️</button><button class="yes" onclick="answer(10)">Jheelu ❤️</button><button class="yes" onclick="answer(10)">I love youuuuuu ❤️</button></div></div>
+
+<!-- FINAL PAGE -->
+<div class="card hidden" id="final">
+  <h1>I Love You ❤️</h1>
+  <p>Your score: <strong><span id="scoreDisplay"></span>/10</strong></p>
+  <p>
+    <!-- WRITE YOUR FINAL PARAGRAPH HERE -->
+    Having you as my girlfriend is amazing, but having you as my best friend too? that’s my biggest flex.
+    Now main suspense babu check your small travel bag cutie in kitchen, before running babu please sorry babu its really hard for me to do everything from here, but please love me the most and wait for me to come.
+    Happy Valentine Day Buido
+  </p>
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+  let score = 0;
+  const total = 10;
+  const text = "Thank you for being my favorite person, my best friend, and my happiest place. Even if we're far apart, my heart is always with you...";
+  let i = 0;
+  const typed = document.getElementById('typed');
+  function typeText(){ if(i<text.length){ typed.innerHTML+=text.charAt(i); i++; setTimeout(typeText,60);} }
+  typeText();
+
+  function hideAll(){ document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden')); }
+  function goToPage(id){ hideAll(); document.getElementById(id).classList.remove('hidden'); startHearts(); }
+  function answer(q){ score++; if(q<10) goToPage('quiz'+(q+1)); else{ document.getElementById('scoreDisplay').innerText=score; goToPage('final'); } }
+
+  function startHearts(){ const hearts=document.getElementById('hearts'); for(let i=0;i<10;i++){ const h=document.createElement('span'); h.textContent=['💖','💘','💕'][Math.floor(Math.random()*3)]; h.style.left=Math.random()*100+'vw'; h.style.animationDuration=4+Math.random()*3+'s'; hearts.appendChild(h); setTimeout(()=>h.remove(),7000);} }
+</script>
+</body>
+</html>
